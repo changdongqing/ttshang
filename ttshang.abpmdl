@@ -1,0 +1,108 @@
+{
+  "template": "app",
+  "imports": {
+    "Volo.Abp.BasicTheme": {
+      "isInstalled": true,
+      "path": "modules/Volo.Abp.BasicTheme/Volo.Abp.BasicTheme.abpmdl"
+    },
+    "Volo.Abp.Account": {
+      "version": "9.3.6",
+      "isInstalled": true,
+      "creationTime": "11/14/2025 10:01:12 +00:00"
+    },
+    "Volo.Abp.OpenIddict": {
+      "version": "9.3.6",
+      "isInstalled": true,
+      "creationTime": "11/14/2025 10:01:12 +00:00"
+    },
+    "Volo.Abp.Identity": {
+      "isInstalled": true,
+      "creationTime": "11/14/2025 10:01:12 +00:00",
+      "path": "modules/Volo.Abp.Identity/Volo.Abp.Identity.abpmdl"
+    },
+    "Volo.Abp.TenantManagement": {
+      "isInstalled": true,
+      "creationTime": "11/14/2025 10:01:12 +00:00",
+      "path": "modules/Volo.Abp.TenantManagement/Volo.Abp.TenantManagement.abpmdl"
+    },
+    "Volo.Abp.SettingManagement": {
+      "isInstalled": true,
+      "creationTime": "11/14/2025 10:01:12 +00:00",
+      "path": "modules/Volo.Abp.SettingManagement/Volo.Abp.SettingManagement.abpmdl"
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.3.6",
+      "isInstalled": true,
+      "creationTime": "11/14/2025 10:01:12 +00:00"
+    },
+    "Volo.Abp.FeatureManagement": {
+      "isInstalled": true,
+      "creationTime": "11/14/2025 10:01:12 +00:00",
+      "path": "modules/Volo.Abp.FeatureManagement/Volo.Abp.FeatureManagement.abpmdl"
+    }
+  },
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {}
+    }
+  },
+  "packages": {
+    "ttshang.Application": {
+      "path": "src/ttshang.Application/ttshang.Application.abppkg",
+      "folder": "src"
+    },
+    "ttshang.Application.Tests": {
+      "path": "test/ttshang.Application.Tests/ttshang.Application.Tests.abppkg",
+      "folder": "test"
+    },
+    "ttshang.Domain.Shared": {
+      "path": "src/ttshang.Domain.Shared/ttshang.Domain.Shared.abppkg",
+      "folder": "src"
+    },
+    "ttshang.Application.Contracts": {
+      "path": "src/ttshang.Application.Contracts/ttshang.Application.Contracts.abppkg",
+      "folder": "src"
+    },
+    "ttshang.HttpApi": {
+      "path": "src/ttshang.HttpApi/ttshang.HttpApi.abppkg",
+      "folder": "src"
+    },
+    "ttshang.HttpApi.Client": {
+      "path": "src/ttshang.HttpApi.Client/ttshang.HttpApi.Client.abppkg",
+      "folder": "src"
+    },
+    "ttshang.EntityFrameworkCore.Tests": {
+      "path": "test/ttshang.EntityFrameworkCore.Tests/ttshang.EntityFrameworkCore.Tests.abppkg",
+      "folder": "test"
+    },
+    "ttshang.EntityFrameworkCore": {
+      "path": "src/ttshang.EntityFrameworkCore/ttshang.EntityFrameworkCore.abppkg",
+      "folder": "src"
+    },
+    "ttshang.TestBase": {
+      "path": "test/ttshang.TestBase/ttshang.TestBase.abppkg",
+      "folder": "test"
+    },
+    "ttshang.Domain.Tests": {
+      "path": "test/ttshang.Domain.Tests/ttshang.Domain.Tests.abppkg",
+      "folder": "test"
+    },
+    "ttshang.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/ttshang.HttpApi.Client.ConsoleTestApp/ttshang.HttpApi.Client.ConsoleTestApp.abppkg",
+      "folder": "test"
+    },
+    "ttshang.DbMigrator": {
+      "path": "src/ttshang.DbMigrator/ttshang.DbMigrator.abppkg",
+      "folder": "src"
+    },
+    "ttshang.Blazor": {
+      "path": "src/ttshang.Blazor/ttshang.Blazor.abppkg",
+      "folder": "src"
+    },
+    "ttshang.Domain": {
+      "path": "src/ttshang.Domain/ttshang.Domain.abppkg",
+      "folder": "src"
+    }
+  }
+}

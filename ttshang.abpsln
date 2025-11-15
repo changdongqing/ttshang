@@ -1,0 +1,87 @@
+{
+  "id": "1b58a3f3-5de6-42c1-bb26-0e8368bc7e34",
+  "creationTime": "11/14/2025 10:01:12 +00:00",
+  "template": "app",
+  "versions": {
+    "AbpFramework": "9.3.6",
+    "AbpStudio": "1.4.2",
+    "TargetDotnetFramework": "net9.0"
+  },
+  "modules": {
+    "ttshang": {
+      "path": "ttshang.abpmdl"
+    },
+    "Volo.Abp.BasicTheme": {
+      "path": "modules/Volo.Abp.BasicTheme/Volo.Abp.BasicTheme.abpmdl"
+    },
+    "Volo.Abp.FeatureManagement": {
+      "path": "modules/Volo.Abp.FeatureManagement/Volo.Abp.FeatureManagement.abpmdl"
+    },
+    "Volo.Abp.Identity": {
+      "path": "modules/Volo.Abp.Identity/Volo.Abp.Identity.abpmdl"
+    },
+    "Volo.Abp.SettingManagement": {
+      "path": "modules/Volo.Abp.SettingManagement/Volo.Abp.SettingManagement.abpmdl"
+    },
+    "Volo.Abp.TenantManagement": {
+      "path": "modules/Volo.Abp.TenantManagement/Volo.Abp.TenantManagement.abpmdl"
+    }
+  },
+  "runProfiles": {
+    "Default": {
+      "path": "etc/abp-studio/run-profiles/Default.abprun.json"
+    }
+  },
+  "options": {
+    "httpRequests": {
+      "ignoredUrls": []
+    }
+  },
+  "creatingStudioConfiguration": {
+    "template": "app",
+    "createdAbpStudioVersion": "1.4.2",
+    "tiered": "false",
+    "runInstallLibs": "true",
+    "useLocalReferences": "false",
+    "multiTenancy": "true",
+    "includeTests": "true",
+    "kubernetesConfiguration": "false",
+    "uiFramework": "blazor-server",
+    "mobileFramework": "none",
+    "distributedEventBus": "none",
+    "databaseProvider": "ef",
+    "runDbMigrator": "true",
+    "databaseManagementSystem": "postgresql",
+    "separateTenantSchema": "false",
+    "createInitialMigration": "true",
+    "theme": "basic",
+    "themeStyle": "",
+    "themeMenuPlacement": "",
+    "publicWebsite": "false",
+    "socialLogin": "true",
+    "selectedLanguages": [
+      "English",
+      "Arabic",
+      "Chinese (Simplified)",
+      "Chinese (Traditional)",
+      "Czech",
+      "English (United Kingdom)",
+      "Finnish",
+      "French",
+      "German (Germany)",
+      "Hindi ",
+      "Hungarian",
+      "Icelandic",
+      "Italian",
+      "Portuguese (Brazil)",
+      "Romanian (Romania)",
+      "Russian",
+      "Slovak",
+      "Spanish",
+      "Swedish",
+      "Turkish"
+    ],
+    "defaultLanguage": "English",
+    "createCommand": "abp new ttshang -t app --ui-framework blazor-server --database-provider ef --database-management-system postgresql --theme basic --without-cms-kit --dont-run-bundling -no-file-management"
+  }
+}

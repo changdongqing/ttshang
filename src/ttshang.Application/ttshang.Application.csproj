@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\common.props" />
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>ttshang</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ttshang.Domain\ttshang.Domain.csproj" />
+    <ProjectReference Include="..\ttshang.Application.Contracts\ttshang.Application.Contracts.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="9.3.6" />
+    <PackageReference Include="Volo.Abp.Account.Application" Version="9.3.6" />
+    <ProjectReference Include="../../modules/Volo.Abp.FeatureManagement/src/Volo.Abp.FeatureManagement.Application/Volo.Abp.FeatureManagement.Application.csproj" />
+    <ProjectReference Include="../../modules/Volo.Abp.Identity/src/Volo.Abp.Identity.Application/Volo.Abp.Identity.Application.csproj" />
+    <ProjectReference Include="../../modules/Volo.Abp.SettingManagement/src/Volo.Abp.SettingManagement.Application/Volo.Abp.SettingManagement.Application.csproj" />
+    <ProjectReference Include="../../modules/Volo.Abp.TenantManagement/src/Volo.Abp.TenantManagement.Application/Volo.Abp.TenantManagement.Application.csproj" />
+  </ItemGroup>
+</Project>

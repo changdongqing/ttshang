@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\common.props" />
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>ttshang</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ttshang.Application.Contracts\ttshang.Application.Contracts.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="9.3.6" />
+    <ProjectReference Include="../../modules/Volo.Abp.FeatureManagement/src/Volo.Abp.FeatureManagement.HttpApi/Volo.Abp.FeatureManagement.HttpApi.csproj" />
+    <ProjectReference Include="../../modules/Volo.Abp.SettingManagement/src/Volo.Abp.SettingManagement.HttpApi/Volo.Abp.SettingManagement.HttpApi.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Account.HttpApi" Version="9.3.6" />
+    <ProjectReference Include="../../modules/Volo.Abp.Identity/src/Volo.Abp.Identity.HttpApi/Volo.Abp.Identity.HttpApi.csproj" />
+    <ProjectReference Include="../../modules/Volo.Abp.TenantManagement/src/Volo.Abp.TenantManagement.HttpApi/Volo.Abp.TenantManagement.HttpApi.csproj" />
+  </ItemGroup>
+</Project>
