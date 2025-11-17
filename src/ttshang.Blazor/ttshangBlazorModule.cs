@@ -1,6 +1,6 @@
-using Blazorise;
-using Blazorise.Bootstrap5;
-using Blazorise.Icons.FontAwesome;
+//using Blazorise;
+//using Blazorise.Bootstrap5;
+//using Blazorise.Icons.FontAwesome;
 using Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme;
 using Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme.Bundling;
 using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Routing;
@@ -264,14 +264,14 @@ public class ttshangBlazorModule : AbpModule
 
     private void ConfigureBlazorise(ServiceConfigurationContext context)
     {
-        context.Services
-            .AddBlazorise(options =>
-            {
-                // TODO (IMPORTANT): To use Blazorise, you need a license key. Get your license key directly from Blazorise, follow  the instructions at https://abp.io/faq#how-to-get-blazorise-license-key
-                //options.ProductToken = "Your Product Token";
-            })
-            .AddBootstrap5Providers()
-            .AddFontAwesomeIcons();
+        context.Services.AddAntDesign();
+                        //.AddBlazorise(options =>
+            //{
+            //    // TODO (IMPORTANT): To use Blazorise, you need a license key. Get your license key directly from Blazorise, follow  the instructions at https://abp.io/faq#how-to-get-blazorise-license-key
+            //    //options.ProductToken = "Your Product Token";
+            //})
+            //./*AddBootstrap5Providers*/()
+            //.AddFontAwesomeIcons();
     }
 
     private void ConfigureMenu(ServiceConfigurationContext context)
