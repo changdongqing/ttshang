@@ -1,57 +1,65 @@
-using System;
-using System.IO;
-using System.Security.Cryptography.X509Certificates;
 using Blazorise;
 using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
+using Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme;
+using Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme.Bundling;
+using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Routing;
+using Lsw.Abp.FeatureManagement.Blazor.Server.AntDesignUI;
+using Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI;
+using Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI;
+using Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Extensions.DependencyInjection;
-using OpenIddict.Validation.AspNetCore;
-using OpenIddict.Server.AspNetCore;
 using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
+using OpenIddict.Server.AspNetCore;
+using OpenIddict.Validation.AspNetCore;
+using System;
+using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using ttshang.Blazor.Components;
+using ttshang.Blazor.HealthChecks;
 using ttshang.Blazor.Menus;
 using ttshang.EntityFrameworkCore;
 using ttshang.Localization;
 using ttshang.MultiTenancy;
-using Microsoft.OpenApi.Models;
 using Volo.Abp;
 using Volo.Abp.Account.Web;
+using Volo.Abp.AspNetCore.Components.Server;
+//using Volo.Abp.AspNetCore.Components.Server.BasicTheme;
+//using Volo.Abp.AspNetCore.Components.Server.BasicTheme.Bundling;
 using Volo.Abp.AspNetCore.Components.Web;
-using Volo.Abp.AspNetCore.Components.Web.Theming.Routing;
+//using Volo.Abp.AspNetCore.Components.Web.Theming.Routing;
 using Volo.Abp.AspNetCore.Mvc;
+using Volo.Abp.AspNetCore.Mvc.Libs;
 using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
-using Volo.Abp.AspNetCore.Serilog;
-using Volo.Abp.AspNetCore.Components.Server;
-using Volo.Abp.AspNetCore.Components.Server.BasicTheme;
-using Volo.Abp.AspNetCore.Components.Server.BasicTheme.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
-using Volo.Abp.Identity;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
+using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
-using ttshang.Blazor.HealthChecks;
-using Volo.Abp.Identity.Blazor.Server;
-using Volo.Abp.TenantManagement.Blazor.Server;
-using Volo.Abp.SettingManagement.Blazor.Server;
-using Volo.Abp.FeatureManagement.Blazor.Server;
-using Volo.Abp.Security.Claims;
+//using Volo.Abp.FeatureManagement.Blazor.Server;
+using Volo.Abp.Identity;
+//using Volo.Abp.Identity.Blazor.Server;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.OpenIddict;
+using Volo.Abp.Security.Claims;
+//using Volo.Abp.SettingManagement.Blazor.Server;
+using Volo.Abp.Studio.Client.AspNetCore;
 using Volo.Abp.Swashbuckle;
+//using Volo.Abp.TenantManagement.Blazor.Server;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
-using Volo.Abp.Studio.Client.AspNetCore;
 
 namespace ttshang.Blazor;
 
@@ -62,14 +70,14 @@ namespace ttshang.Blazor;
     typeof(ttshangHttpApiModule),
     typeof(AbpAutofacModule),
     typeof(AbpSwashbuckleModule),
-    typeof(AbpIdentityBlazorServerModule),
-    typeof(AbpTenantManagementBlazorServerModule),
+    typeof(AbpIdentityBlazorServerAntDesignModule),
+    typeof(AbpTenantManagementBlazorServerAntDesignModule),
     typeof(AbpAccountWebOpenIddictModule),
-    typeof(AbpAspNetCoreComponentsServerBasicThemeModule),
+    typeof(AbpAspNetCoreComponentsServerAntDesignThemeModule),
     typeof(AbpAspNetCoreMvcUiBasicThemeModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpFeatureManagementBlazorServerModule),
-    typeof(AbpSettingManagementBlazorServerModule)
+    typeof(AbpFeatureManagementBlazorServerAntDesignModule),
+    typeof(AbpSettingManagementBlazorServerAntDesignModule)
    )]
 public class ttshangBlazorModule : AbpModule
 {
@@ -156,7 +164,11 @@ public class ttshangBlazorModule : AbpModule
         ConfigureVirtualFileSystem(hostingEnvironment);
         ConfigureSwaggerServices(context.Services);
         ConfigureAutoApiControllers();
-        ConfigureBlazorise(context);
+        //ConfigureBlazorise(context);
+        Configure<AbpMvcLibsOptions>(options =>
+        {
+            options.CheckLibs = false;
+        });
         ConfigureRouter(context);
         ConfigureMenu(context);
     }
@@ -202,7 +214,7 @@ public class ttshangBlazorModule : AbpModule
 
             // Blazor UI
             options.StyleBundles.Configure(
-                BlazorBasicThemeBundles.Styles.Global,
+                BlazorAntDesignThemeBundles.Styles.Global,
                 bundle =>
                 {
                     bundle.AddFiles("/global-styles.css");
@@ -223,12 +235,12 @@ public class ttshangBlazorModule : AbpModule
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
                 options.FileSets.ReplaceEmbeddedByPhysical<ttshangDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}ttshang.Domain.Shared"));
-                options.FileSets.ReplaceEmbeddedByPhysical<AbpTenantManagementBlazorServerModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}modules{0}Volo.Abp.TenantManagement{0}src{0}Volo.Abp.TenantManagement.Blazor.Server", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<AbpSettingManagementBlazorServerModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}modules{0}Volo.Abp.SettingManagement{0}src{0}Volo.Abp.SettingManagement.Blazor.Server", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<AbpIdentityBlazorServerModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}modules{0}Volo.Abp.Identity{0}src{0}Volo.Abp.Identity.Blazor.Server", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<AbpFeatureManagementBlazorServerModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}modules{0}Volo.Abp.FeatureManagement{0}src{0}Volo.Abp.FeatureManagement.Blazor.Server", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AbpTenantManagementBlazorServerAntDesignModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}modules{0}Volo.Abp.TenantManagement{0}src{0}Volo.Abp.TenantManagement.Blazor.Server", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AbpSettingManagementBlazorServerAntDesignModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}modules{0}Volo.Abp.SettingManagement{0}src{0}Volo.Abp.SettingManagement.Blazor.Server", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AbpIdentityBlazorServerAntDesignModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}modules{0}Volo.Abp.Identity{0}src{0}Volo.Abp.Identity.Blazor.Server", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AbpFeatureManagementBlazorServerAntDesignModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}modules{0}Volo.Abp.FeatureManagement{0}src{0}Volo.Abp.FeatureManagement.Blazor.Server", Path.DirectorySeparatorChar)));
                 options.FileSets.ReplaceEmbeddedByPhysical<AbpAspNetCoreMvcUiBasicThemeModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}modules{0}Volo.Abp.BasicTheme{0}src{0}Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<AbpAspNetCoreComponentsServerBasicThemeModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}modules{0}Volo.Abp.BasicTheme{0}src{0}Volo.Abp.AspNetCore.Components.Server.BasicTheme", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<AbpAspNetCoreComponentsServerAntDesignThemeModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}modules{0}Volo.Abp.BasicTheme{0}src{0}Volo.Abp.AspNetCore.Components.Server.BasicTheme", Path.DirectorySeparatorChar)));
                 options.FileSets.ReplaceEmbeddedByPhysical<ttshangDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}ttshang.Domain"));
                 options.FileSets.ReplaceEmbeddedByPhysical<ttshangApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}ttshang.Application.Contracts"));
                 options.FileSets.ReplaceEmbeddedByPhysical<ttshangApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}ttshang.Application"));

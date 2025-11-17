@@ -22,6 +22,11 @@
     <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="9.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\modules\ttshang.antdesignblazorui\modules\AntDesignTheme\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme.csproj" />
+    <ProjectReference Include="..\..\modules\ttshang.antdesignblazorui\modules\FeatureManagement\Lsw.Abp.FeatureManagement.Blazor.Server.AntDesignUI\Lsw.Abp.FeatureManagement.Blazor.Server.AntDesignUI.csproj" />
+    <ProjectReference Include="..\..\modules\ttshang.antdesignblazorui\modules\IdentityManagement\Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI\Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI.csproj" />
+    <ProjectReference Include="..\..\modules\ttshang.antdesignblazorui\modules\SettingManagement\Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI\Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI.csproj" />
+    <ProjectReference Include="..\..\modules\ttshang.antdesignblazorui\modules\TenantManagement\Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI\Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI.csproj" />
     <ProjectReference Include="..\ttshang.Application\ttshang.Application.csproj" />
     <ProjectReference Include="..\ttshang.HttpApi\ttshang.HttpApi.csproj" />
     <ProjectReference Include="..\ttshang.EntityFrameworkCore\ttshang.EntityFrameworkCore.csproj" />
@@ -29,13 +34,8 @@
     <PackageReference Include="Volo.Abp.Swashbuckle" Version="9.3.6" />
     <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="9.3.6" />
     <PackageReference Include="Volo.Abp.Account.Web.OpenIddict" Version="9.3.6" />
-    <ProjectReference Include="../../modules/Volo.Abp.FeatureManagement/src/Volo.Abp.FeatureManagement.Blazor.Server/Volo.Abp.FeatureManagement.Blazor.Server.csproj" />
-    <ProjectReference Include="../../modules/Volo.Abp.Identity/src/Volo.Abp.Identity.Blazor.Server/Volo.Abp.Identity.Blazor.Server.csproj" />
-    <ProjectReference Include="../../modules/Volo.Abp.SettingManagement/src/Volo.Abp.SettingManagement.Blazor.Server/Volo.Abp.SettingManagement.Blazor.Server.csproj" />
-    <ProjectReference Include="../../modules/Volo.Abp.TenantManagement/src/Volo.Abp.TenantManagement.Blazor.Server/Volo.Abp.TenantManagement.Blazor.Server.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../modules/Volo.Abp.BasicTheme/src/Volo.Abp.AspNetCore.Components.Server.BasicTheme/Volo.Abp.AspNetCore.Components.Server.BasicTheme.csproj" />
     <ProjectReference Include="../../modules/Volo.Abp.BasicTheme/src/Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic/Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.csproj" />
   </ItemGroup>
   <ItemGroup>
