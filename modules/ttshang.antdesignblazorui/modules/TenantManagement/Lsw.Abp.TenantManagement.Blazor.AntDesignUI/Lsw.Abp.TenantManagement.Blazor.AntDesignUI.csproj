@@ -9,10 +9,10 @@
 
     <ItemGroup>
       <PackageReference Include="Volo.Abp.AutoMapper" />
-      <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\..\Volo.Abp.TenantManagement\src\Volo.Abp.TenantManagement.Application.Contracts\Volo.Abp.TenantManagement.Application.Contracts.csproj" />
       <ProjectReference Include="..\..\FeatureManagement\Lsw.Abp.FeatureManagement.Blazor.AntDesignUI\Lsw.Abp.FeatureManagement.Blazor.AntDesignUI.csproj" />
     </ItemGroup>
 

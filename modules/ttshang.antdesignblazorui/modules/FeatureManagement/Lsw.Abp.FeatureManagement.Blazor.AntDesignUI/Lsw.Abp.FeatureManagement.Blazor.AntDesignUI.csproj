@@ -10,10 +10,10 @@
     <ItemGroup>
       <PackageReference Include="Volo.Abp.AutoMapper" />
       <PackageReference Include="Volo.Abp.Features" />
-      <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\..\Volo.Abp.FeatureManagement\src\Volo.Abp.FeatureManagement.Application.Contracts\Volo.Abp.FeatureManagement.Application.Contracts.csproj" />
       <ProjectReference Include="..\..\AntDesignTheme\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.csproj" />
     </ItemGroup>
 
